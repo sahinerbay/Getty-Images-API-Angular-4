@@ -1,15 +1,10 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
-
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'gt-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-
-  ngAfterViewInit() {
-  }
-
+  title = 'gt';
 }
