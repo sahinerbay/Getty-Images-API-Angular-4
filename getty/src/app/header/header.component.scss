@@ -55,7 +55,7 @@
 
       &__responsive {
         position: fixed;
-        background: $color-main;
+        background: $color-background;
         top: 0;
         left: 0;
         width: 100%;
@@ -156,17 +156,33 @@
 
 @include atSmall {
 
-    .navbar__button {
+    .navbar {
+
+    &__button {
         visibility: hidden;
     }
-    .navbar__responsive {
+    
+    &__responsive {
         opacity: 1;
         visibility: visible;
         height: 50px;
     }
 
-    .navbar__responsive__menu__list > li {
+    &__responsive__menu {
+        font-size: 16px;
+        line-height: 50px;
+        font-family: 'Vollkorn', serif;
+        font-weight: 400;
+        text-align: right;
+        top: 0;
+        transform: translateY(0%);
+        height: 100%;
+    }
+
+    &__responsive__menu__list > li {
         display: inline-block;
         opacity: 1;
+        padding-right: 15px;
+    }
     }
 }

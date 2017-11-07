@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../../_services/http.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'gt-search',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpService : HttpService) { }
 
   ngOnInit() {
+   
+  }
+
+  private selectedRadioButton: string="Images";
+  
+  setRadioButton(event):void {
+    this.selectedRadioButton = event.target.value;
+  }
+
+  getRequest(searchBar):void {
+    let searchQuery:string = searchBar.value;
+    this.httpService.getPosts(this.selectedRadioButton, searchQuery);
+    console.log(searchQuery, this.selectedRadioButton)
   }
 
 }
