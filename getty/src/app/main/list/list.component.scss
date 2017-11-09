@@ -1,0 +1,9 @@
+.list-item__container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 50px;
+    top: 70px;
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+}

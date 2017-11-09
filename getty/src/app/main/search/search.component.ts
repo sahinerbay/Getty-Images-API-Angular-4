@@ -11,19 +11,18 @@ export class SearchComponent implements OnInit {
   constructor(private httpService : HttpService) { }
 
   ngOnInit() {
-   
   }
 
-  private selectedRadioButton: string="Images";
+  private selectedRadioButton: string= "images";
   
   setRadioButton(event):void {
     this.selectedRadioButton = event.target.value;
   }
 
+  //handle later if searchquery null, empty?
   getRequest(searchBar):void {
     let searchQuery:string = searchBar.value;
     this.httpService.getPosts(this.selectedRadioButton, searchQuery);
-    console.log(searchQuery, this.selectedRadioButton)
   }
 
 }

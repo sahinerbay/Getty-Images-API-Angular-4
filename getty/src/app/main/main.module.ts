@@ -5,6 +5,7 @@ import { MainRoutingModule } from './main-routing.module';
 
 // COMPONENTS
 import { MainRoutingComponents } from './main-routing.module';
+import { ListItemComponent } from './list/list-item.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { MainRoutingComponents } from './main-routing.module';
     MainRoutingModule
   ],
   declarations: [
-    MainRoutingComponents
+    MainRoutingComponents,
+    ListItemComponent
   ]
 })
 export class MainModule { }
