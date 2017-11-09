@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes }  from '@angular/router';
 
 //components
-import { ListComponent } from './main/list/list.component';
+import { MainComponent } from './main/main.component';
 
 const appRoutes: Routes = [
-  { path: 'type', component: ListComponent }, //remember path cannot start with a slash!
+  { path: '', component: MainComponent }, //remember path cannot start with a slash!
 ];
 
 @NgModule({
@@ -14,7 +14,12 @@ const appRoutes: Routes = [
     CommonModule,
     RouterModule.forRoot(appRoutes)
   ],
+  exports: [
+    RouterModule
+  ],
   declarations: []
 })
-export class CustomModule { }
-export const CustomModuleComponents = [ListComponent];
+
+export class AppRoutingModule { }
+export const AppRoutingModuleComponents = [];
+

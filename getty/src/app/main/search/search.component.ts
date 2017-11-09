@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../_services/http.service';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'gt-search',

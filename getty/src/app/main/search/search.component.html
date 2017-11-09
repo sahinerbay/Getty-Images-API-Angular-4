@@ -2,7 +2,7 @@
   <h2 class="searchbar__title">Freaky Image</h2>
   <form>
     <input type="text" #searchBar name="search" placeholder="Search.." class="searchbar__input">
-    <button (click)="getRequest(searchBar)" routerlink="/story">Search</button>
+    <button (click)="getRequest(searchBar)" routerLink="/type">Search</button>
     <div class="searchbar__options">
       <input type="radio" name="radio" id="images" value="Images" [checked]="true" (change)= "setRadioButton($event)">
       <label for="images">Images</label>
@@ -12,5 +12,5 @@
       <label for="events">Events</label>
     </div>
   </form>
-  <a [routerLink]="['/type']">Stories</a> 
+  <a [routerLink]="['/type']">Stories</a>
 </div>
