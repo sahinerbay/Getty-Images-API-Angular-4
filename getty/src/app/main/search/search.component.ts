@@ -8,21 +8,17 @@ import { HttpService } from '../../_services/http.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private httpService : HttpService) { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
   }
 
-  private selectedRadioButton: string= "images";
-  
-  setRadioButton(event):void {
-    this.selectedRadioButton = event.target.value;
-  }
+  //Selected active radio button's value
+  private mediaType: string = "images";
 
-  //handle later if searchquery null, empty?
-  getRequest(searchBar):void {
-    let searchQuery:string = searchBar.value;
-    this.httpService.getPosts(this.selectedRadioButton, searchQuery);
-  }
+  private requestedSearchQuery: string;
 
+  setRadioButton(event): void {
+    this.mediaType = event.target.value;
+  }
 }

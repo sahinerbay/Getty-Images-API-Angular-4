@@ -5,13 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MainModule } from './main/main.module';
 
-
 // COMPONENTS
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
 // SERVICE
 import { HttpService } from './_services/http.service';
+import { SharedDataService } from './_services/shared-data.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +22,10 @@ import { HttpService } from './_services/http.service';
     BrowserModule,
     HttpClientModule,
     MainModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
-  providers: [HttpService],
+  providers: [HttpService, SharedDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
