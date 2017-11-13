@@ -13,25 +13,22 @@ export class ListComponent implements OnInit {
 
   constructor(private httpService: HttpService, private sharedData: SharedDataService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  private retrievedItems;
+  private retrievedItems: Array<string>;
   private searchQuery: string;
   private mediaType: string;
 
   ngOnInit() {
     this.activatedRoute.paramMap
       .subscribe(params => this.mediaType = params.get('mediaType'));
-      
+
     this.activatedRoute.queryParamMap
       .subscribe(params => this.searchQuery = params.get('query'));
 
     this.httpService.getPosts(this.mediaType, this.searchQuery);
 
-    console.log(this.mediaType)
-
-     this.sharedData.getSharedData().subscribe(result => this.retrievedItems = result);
-    console.log(this.searchQuery)
+    this.sharedData.getSharedData().subscribe(result => this.retrievedItems = result);
   }
 
-  
+
 
 }

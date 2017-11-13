@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'gt-list-item-modal',
@@ -11,5 +11,7 @@ export class ListItemModalComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  @Input() itemDetails;
 
 }

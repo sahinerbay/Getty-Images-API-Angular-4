@@ -4,8 +4,8 @@
 .navbar {
     &__button {
         position: fixed;
-        top: 5%;
-        right: 2%;
+        top: 10px;
+        right: 40px;
         height: $button-height;
         width: $button-width;
         cursor: pointer;
@@ -55,7 +55,8 @@
 
       &__responsive {
         position: fixed;
-        background: $color-background;
+        z-index: 99;
+        background: #fff4f4;
         top: 0;
         left: 0;
         width: 100%;
@@ -66,7 +67,7 @@
         overflow: hidden;
         
         &--open {
-          opacity: .9;
+          opacity: 1;
           visibility: visible;
           height: 100%;
           
@@ -99,6 +100,7 @@
           list-style: none;
           padding: 0;
           margin: 0 auto;
+          margin-right: 30px;
           display: inline-block;
           position: relative;
           height: 100%; 
@@ -127,7 +129,7 @@
               &:after {
                 content: '';
                 position: absolute;
-                bottom: 0;
+                bottom: 10px;
                 left: 50%;
                 width: 0%;
                 transform: translateX(-50%);
@@ -166,6 +168,7 @@
         opacity: 1;
         visibility: visible;
         height: 50px;
+        background: #fff;
     }
 
     &__responsive__menu {

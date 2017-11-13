@@ -1,9 +1,9 @@
-<div class="polaroid">
-  <a href="">
-      <img class="cardimg" src="{{itemArray.display_sizes[2].uri}}" alt="Norway">
+<div class="list-item" (mouseenter) = "isHovered = !isHovered" (mouseleave) = "isHovered = !isHovered">
+  <a (click) = "isModalActive = !isModalActive">
+      <img class="list-item__image" src="{{singleItemDetails.display_sizes[1].uri}}" alt="Norway">
   </a>
-  <div class="container">
-      <p>{{itemArray.title}}</p>
+  <div class="list-item__container" *ngIf = "isHovered">
+      <p class="list-item__container__title">{{singleItemDetails.title}} by <span class="list-item__container__artist">{{singleItemDetails.artist}}</span></p>
   </div>
 </div>
-<gt-list-item-modal></gt-list-item-modal>
+<gt-list-item-modal [itemDetails] = "singleItemDetails" *ngIf = "isModalActive"></gt-list-item-modal>

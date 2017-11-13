@@ -1,5 +1,5 @@
 <div class="searchbar">
-  <h2 class="searchbar__title">Freaky Image</h2>
+  <h2 class="searchbar__title"><img src="assets/logo.jpg" alt=""></h2>
   <form>
     <input type="text" name="search" placeholder="Search.." class="searchbar__input" [(ngModel)]="requestedSearchQuery">
     <button [routerLink]="['/search', mediaType]" [queryParams]="{query : requestedSearchQuery}">Search</button>

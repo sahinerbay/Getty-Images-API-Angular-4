@@ -9,17 +9,17 @@ export class SharedDataService {
 
   constructor() { }
 
-  private messageSource = new BehaviorSubject<string>(null);
+  private messageSource = new BehaviorSubject<Array<string>>(null);
 
-  createSharedData(message: string) {
+  createSharedData(message: Array<string>) {
     this.messageSource.next(message);
   }
 
-  getSharedData(): Observable<string> {
+  getSharedData(): Observable<Array<string>> {
     return this.messageSource.asObservable();
   }
 
   clearSharedData() {
-    this.messageSource.next('');
+    this.messageSource.next([]);
   }
 }

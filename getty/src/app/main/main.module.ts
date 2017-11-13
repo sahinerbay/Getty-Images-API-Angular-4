@@ -7,7 +7,7 @@ import { FormsModule }   from '@angular/forms';
 // COMPONENTS
 import { MainRoutingComponents } from './main-routing.module';
 import { ListItemComponent } from './list/list-item/list-item.component';
-import { ListItemModalComponent } from './list/list-item/list-item-modal.component';
+import { ListItemModalComponent } from './list/list-item/list-item-modal/list-item-modal.component';
 
 @NgModule({
   imports: [

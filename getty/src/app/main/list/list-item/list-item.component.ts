@@ -9,9 +9,12 @@ export class ListItemComponent implements OnInit {
 
   constructor() { }
 
+  private isModalActive: boolean = false;
+  private isHovered: boolean = false;
+
   ngOnInit() {
   }
 
-  @Input() itemArray;
+  @Input() singleItemDetails;
 
 }
