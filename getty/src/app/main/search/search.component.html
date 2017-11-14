@@ -1,15 +1,19 @@
-<div class="searchbar">
-  <h2 class="searchbar__title"><img src="assets/logo.jpg" alt=""></h2>
-  <form>
-    <input type="text" name="search" placeholder="Search.." class="searchbar__input" [(ngModel)]="requestedSearchQuery">
-    <button [routerLink]="['/search', mediaType]" [queryParams]="{query : requestedSearchQuery}">Search</button>
-    <div class="searchbar__options">
-      <input type="radio" name="radio" id="images" value="images" [checked]="true" (change)= "setRadioButton($event)">
-      <label for="images">Images</label>
-      <input type="radio" name="radio" id="videos" value="videos" (change)= "setRadioButton($event)">
-      <label for="videos">Videos</label>
-      <input type="radio" name="radio" id="events" value="events" (change)= "setRadioButton($event)">
-      <label for="events">Events</label>
-    </div>
-  </form>
+<div class="searchbar-container">
+  <h2 class="searchbar-container__title">
+    <img src="assets/logo.jpg" alt="">
+  </h2>
+
+  <div class="searchbar-container__wrapper searchbar-container__wrapper--margin-bottom">
+    <input class="searchbar-container__wrapper__input" type="text" placeholder="Search..." required [(ngModel)]="requestedSearchQuery">
+    <button class="searchbar-container__wrapper__button" type="submit" [routerLink]="['/search', mediaType]" [queryParams]="{query : requestedSearchQuery}">Search</button>
+  </div>
+
+  <div class="searchbar-container__media-types searchbar-container__media-types--center">
+    <input type="radio" name="radio" id="images" value="images" [checked]="true" (change)="setRadioButton($event)">
+    <label for="images">Images</label>
+    <input type="radio" name="radio" id="videos" value="videos" (change)="setRadioButton($event)">
+    <label for="videos">Videos</label>
+    <input type="radio" name="radio" id="events" value="events" (change)="setRadioButton($event)">
+    <label for="events">Events</label>
+  </div>
 </div>

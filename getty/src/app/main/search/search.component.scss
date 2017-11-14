@@ -1,35 +1,170 @@
 @import '~sass/variables';
 @import '~sass/mixins';
 
-.searchbar {
+.searchbar-container {
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.searchbar__title {
+.searchbar-container__title {
     text-align: center;
 }
 
-.searchbar__input {
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('https://www.w3schools.com/howto/searchicon.png');
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+/* Radio Buttons */
+.searchbar-container__media-types--center {
+    text-align: center;
+    font-size: 1rem;
 }
 
-.searchbar__input:focus {
-    
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
 }
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #F87DA9;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+/* search box */
+.searchbar-container__wrapper {
+    width: 100%;
+border-radius: 10px;
+box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+}
+
+.searchbar-container__wrapper--margin-bottom {
+    margin-bottom: 15px;
+}
+.searchbar-container__wrapper:after {
+    content: "";
+display: table;
+clear: both;
+}
+
+.searchbar-container__wrapper__input {
+    width: 75%;
+    box-sizing: border-box;
+padding: 10px 5px;
+float: left;
+font: bold 15px 'Raleway', sans-serif;
+border: 1px solid #ccc;
+background: #fff;
+border-radius: 3px 0 0 3px;
+}
+.searchbar-container__wrapper__input:focus {
+outline: 0;
+background: #fff;
+-moz-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+-webkit-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+.searchbar-container__wrapper__input::-webkit-input-placeholder {
+color: #999;
+font-weight: normal;
+font-style: italic;
+}
+.searchbar-container__wrapper__input:-moz-placeholder {
+color: #999;
+font-weight: normal;
+font-style: italic;
+}
+.searchbar-container__wrapper__input:-ms-input-placeholder {
+color: #999;
+font-weight: normal;
+font-style: italic;
+}
+.searchbar-container__wrapper__button {
+overflow: visible;
+position: relative;
+float: right;
+border: 0;
+padding: 0;
+cursor: pointer;
+height: 40px;
+width: 25%;
+font: bold 15px/40px 'Raleway', sans-serif;
+color: #fff;
+text-transform: uppercase;
+background: #D88F3C;
+-moz-border-radius: 0 3px 3px 0;
+-webkit-border-radius: 0 3px 3px 0;
+border-radius: 0 3px 3px 0;
+text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+}
+.searchbar-container__wrapper__button:hover{
+background: #FA8807;
+}
+.searchbar-container__wrapper__button:active,
+.searchbar-container__wrapper__button:focus{
+background: #c42f2f;
+}
+.searchbar-container__wrapper__button:before {
+content: '';
+position: absolute;
+border-width: 8px 8px 8px 0;
+border-style: solid solid solid none;
+border-color: transparent #D88F3C transparent;
+top: 12px;
+left: -6px;
+}
+.searchbar-container__wrapper__button:hover:before{
+border-right-color: #FA8807;
+}
+.searchbar-container__wrapper__button:focus:before{
+border-right-color: #c42f2f;
+}
+.searchbar-container__wrapper__button::-moz-focus-inner {
+border: 0;
+padding: 0;
+}
+/*-------------------------------------*/
+
 
 @include atSmall {
 
 }
+
