@@ -23,10 +23,7 @@
     cursor: pointer;
 }
 
-.list-item__container__title {
-    font-size: 1rem;
-    color: #fff;
-    letter-spacing: .015rem;
+.list-item__container__center {
     margin: 0;
     position: absolute;
     top: 50%;
@@ -34,6 +31,19 @@
     transform: translate(-50%, -50%);
 }
 
-.list-item__container__artist {
-    font-weight: 600;
+.list-item__container__center__zoom-icon {
+    font-size: 10rem;
+    transform: rotate(-45deg);
+    color: #fff;
+}
+
+.list-item__container__title {
+    font-size: 1rem;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    color: #fff;
 }

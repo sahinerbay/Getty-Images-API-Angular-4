@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
 
     this.httpService.getPosts(this.mediaType, this.searchQuery);
 
-    this.sharedData.getSharedData().subscribe(result => this.retrievedItems = result);
+    this.sharedData.getSharedData().subscribe(result => {this.retrievedItems = result; console.log(result)});
   }
 
 
