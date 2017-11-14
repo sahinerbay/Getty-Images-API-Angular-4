@@ -1,3 +1,4 @@
 export interface Getty {
-    images: Array<string>;
+    result: string,
+    images: Array<string>
 }

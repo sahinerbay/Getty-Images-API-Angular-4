@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 // SERVICE
 import { HttpService } from './_services/http.service';
 import { SharedDataService } from './_services/shared-data.service';
+import { GetRouteService } from './_services/get-route.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { SharedDataService } from './_services/shared-data.service';
     AppRoutingModule,
     
   ],
-  providers: [HttpService, SharedDataService],
+  providers: [HttpService, SharedDataService, GetRouteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

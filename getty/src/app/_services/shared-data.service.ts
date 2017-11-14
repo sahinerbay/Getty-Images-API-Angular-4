@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 import {Observable} from 'rxjs/Rx';
 import { Getty } from '../_interfaces/getty';
 
@@ -9,17 +10,17 @@ export class SharedDataService {
 
   constructor() { }
 
-  private messageSource = new BehaviorSubject<Array<string>>(null);
+  private messageSource = new ReplaySubject<Getty>(1);
 
-  createSharedData(message: Array<string>) {
+  createSharedData(message: Getty) {
     this.messageSource.next(message);
   }
 
-  getSharedData(): Observable<Array<string>> {
+  getSharedData(): Observable<Getty> {
     return this.messageSource.asObservable();
   }
 
   clearSharedData() {
-    this.messageSource.next([]);
+    this.messageSource.next(null);
   }
 }

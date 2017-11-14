@@ -8,6 +8,7 @@ import { FormsModule }   from '@angular/forms';
 import { MainRoutingComponents } from './main-routing.module';
 import { ListItemComponent } from './list/list-item/list-item.component';
 import { ListItemModalComponent } from './list/list-item/list-item-modal/list-item-modal.component';
+import { ListFilterComponent } from './list/list-filter/list-filter.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { ListItemModalComponent } from './list/list-item/list-item-modal/list-it
   declarations: [
     MainRoutingComponents,
     ListItemComponent,
-    ListItemModalComponent
+    ListItemModalComponent,
+    ListFilterComponent
   ]
 })
 export class MainModule { }
