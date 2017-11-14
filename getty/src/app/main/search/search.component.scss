@@ -164,7 +164,15 @@ padding: 0;
 /*-------------------------------------*/
 
 
-@include atSmall {
+@include atMedium {
+    .searchbar-container__title__logo {
+        max-width: 80%;
+    }
+}
 
+@include atLarge {
+    .searchbar-container__title__logo {
+        max-width: 60%;
+    }
 }
 

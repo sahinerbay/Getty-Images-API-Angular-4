@@ -1,7 +1,9 @@
 <div class="searchbar-container">
-  <h2 class="searchbar-container__title">
-    <img src="assets/logo.jpg" alt="">
-  </h2>
+  <h1 class="searchbar-container__title">
+    <img class="searchbar-container__title__logo"srcset="assets/logo.jpg  1024w,
+    assets/logo-mobile.jpg 640w,
+      assets/logo-mobile.jpg  320w" src="assets/logo-mobile.jpg" alt="A rad wolf">
+  </h1>
 
   <div class="searchbar-container__wrapper searchbar-container__wrapper--margin-bottom">
     <input class="searchbar-container__wrapper__input" type="text" placeholder="Search..." required [(ngModel)]="requestedSearchQuery">
