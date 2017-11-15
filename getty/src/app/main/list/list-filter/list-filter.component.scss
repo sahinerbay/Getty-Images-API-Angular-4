@@ -6,8 +6,9 @@
   right: 0;
   top: 50px;
   z-index: 999;
+  height: 50px;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), inset 0 0 40px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0,0,0,.8);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), inset 0 0 40px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -15,57 +16,55 @@
   display: inherit;
   width: 90%;
   margin: 0 auto;
-  justify-content: space-between;
+  justify-content: flex-end;
   &__search-results {
     font-size: 1rem;
   }
   &__dropdown {
-    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    width: 130px;
+    height: 30px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+    background: #fff;
+    position: relative;
+    align-self: center;
   }
-}
 
-.select-style {
-  padding: 0;
-  margin: 0;
-  border: 1px solid #ccc;
-  width: 120px;
-  height: 30px;
-  border-radius: 3px;
-  overflow: hidden;
-  background-color: #fff;
-  background: #fff;
-  position: relative;
-  align-self: center;
-}
+  &__dropdown:after {
+    top: 50%;
+    left: 85%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: #000000;
+    border-width: 5px;
+    margin-top: -2px;
+    z-index: 100;
+  }
 
-.select-style:after {
-  top: 50%;
-  left: 85%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-color: rgba(0, 0, 0, 0);
-  border-top-color: #000000;
-  border-width: 5px;
-  margin-top: -2px;
-  z-index: 100;
-}
+  &__dropdown__sorting {
+    padding: 8px;
+    text-transform: capitalize;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
 
-.select-style select {
-  padding: 5px 8px;
-  width: 100%;
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-  background-image: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
+  &__dropdown__sorting:focus {
+    outline: none;
+  }
 
-.select-style select:focus {
-  outline: none;
 }

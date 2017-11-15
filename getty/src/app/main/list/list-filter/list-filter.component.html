@@ -1,8 +1,8 @@
 <div class="filterbar">
-  <p class="filterbar__search-results">Search Results For: {{currentRoute}}, number of results: {{numberOfResults}}</p>
-  <div class="select-style">
-    <select class="filterbar__dropdown" (change)="sendRequest($event)">
-      <option *ngFor="let option of filterOptions" [value]="option">{{option}}</option>
+  <!-- <p class="filterbar__search-results">Search Results For: {{currentRoute}}, number of results: {{numberOfResults}}</p> -->
+  <div class="filterbar__dropdown">
+    <select class="filterbar__dropdown__sorting" (change)="sendRequest($event)">
+      <option *ngFor="let option of filterOptions | removeDash" [value]="option">{{option}}</option>
     </select>
   </div>
 </div>

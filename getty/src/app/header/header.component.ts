@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit   } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { GetRouteService } from '../_services/get-route.service';
 
 @Component({
   selector: 'gt-header',
@@ -7,13 +8,12 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit   } from '@angu
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routeService: GetRouteService) { }
 
   ngOnInit() {
   }
 
   private isHamburgerButtonActive:boolean = true;
-
   private menuLinksNames: Array<string> = ['Home', 'Images', 'Videos', 'Events'];
 
   setHamburgerButton():void {

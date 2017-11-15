@@ -10,6 +10,8 @@ import { ListItemComponent } from './list/list-item/list-item.component';
 import { ListItemModalComponent } from './list/list-item/list-item-modal/list-item-modal.component';
 import { ListFilterComponent } from './list/list-filter/list-filter.component';
 
+import { RemoveDashPipe } from './../_pipes/remove-dash.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -20,7 +22,9 @@ import { ListFilterComponent } from './list/list-filter/list-filter.component';
     MainRoutingComponents,
     ListItemComponent,
     ListItemModalComponent,
-    ListFilterComponent
-  ]
+    ListFilterComponent,
+    RemoveDashPipe
+  ],
+  providers: [RemoveDashPipe],
 })
 export class MainModule { }
