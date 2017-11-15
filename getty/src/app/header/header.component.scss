@@ -140,6 +140,9 @@
       visibility: visible;
       height: 50px;
       background: #fff;
+      width: 90%;
+      left: 50%;
+      margin-left: -45%;
     }
     &__menu__container {
       font-size: 16px;
@@ -150,6 +153,9 @@
       top: 0;
       transform: translateY(0%);
       height: 100%;
+    }
+    &__menu__container__list {
+      margin-right: -15px;
     }
     &__menu__container__list>li {
       display: inline-block;
