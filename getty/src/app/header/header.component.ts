@@ -10,18 +10,14 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
   }
 
-  private isActive:boolean = true;
+  private isHamburgerButtonActive:boolean = true;
 
-  setClass():void {
-    this.isActive = !this.isActive;
+  private menuLinksNames: Array<string> = ['Home', 'Images', 'Videos', 'Events'];
+
+  setHamburgerButton():void {
+    this.isHamburgerButtonActive = !this.isHamburgerButtonActive;
   }
-  // $('#toggle').click(function() {
-  //   $(this).toggleClass('active');
-  //   $('#overlay').toggleClass('open');
-  //  });
-
 
 }
