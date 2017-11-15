@@ -1,14 +1,16 @@
 <div class="searchbar-container">
-  <h1 class="searchbar-container__title">
-    <img class="searchbar-container__title__logo" srcset="assets/logo.jpg  1024w,
+  <div class="searchbar-container__header">
+    <h1 class="searchbar-container__header__title">
+      <img class="searchbar-container__header__title__logo" srcset="assets/logo.jpg  1024w,
     assets/logo-mobile.jpg 640w,
       assets/logo-mobile.jpg  320w" src="assets/logo-mobile.jpg" alt="A rad wolf">
-  </h1>
+    </h1>
+  </div>
 
   <div class="searchbar-container__wrapper">
     <div class="searchbar-container__wrapper__dropdown">
       <select class="searchbar-container__wrapper__dropdown__sorting">
-        <option *ngFor="let option of filterOptions" [value]="option" (change)="setRadioButton($event)" >{{option}}</option>
+        <option *ngFor="let option of filterOptions" [value]="option" (change)="setRadioButton($event)">{{option}}</option>
       </select>
     </div>
     <input class="searchbar-container__wrapper__input" type="text" placeholder="Search..." required [(ngModel)]="requestedSearchQuery">

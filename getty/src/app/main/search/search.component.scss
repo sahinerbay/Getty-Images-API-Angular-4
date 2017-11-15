@@ -8,7 +8,7 @@
     transform: translate(-50%, -50%);
     width: 90%;
 
-    &__title {
+    &__header__title {
         text-align: center;
     }
 
@@ -22,9 +22,11 @@
         border: 1px solid #ccc;
         width: 25%;
         height: 100%;
-        border-radius: 3px;
+        border-radius: 5px;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
         overflow: hidden;
-        background-color: #6d6d6d;
+        
         position: relative;
         align-self: center;
       }
@@ -49,9 +51,10 @@
         align-self: center;
         text-transform: capitalize;
         width: 100%;
+        height: 100%;
         border: none;
         box-shadow: none;
-        background-color: transparent;
+        background-color: #434A54;
         background-image: none;
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -95,7 +98,6 @@ font-size: 1rem;
 font-family: $font_saira;
 border: 1px solid #ccc;
 background: #fff;
-border-radius: 3px 0 0 3px;
 }
 &__wrapper__input:focus {
 outline: 0;
@@ -131,14 +133,12 @@ width: 15%;
 font: bold 15px/40px 'Raleway', sans-serif;
 color: #fff;
 text-transform: uppercase;
-background: #D88F3C;
--moz-border-radius: 0 3px 3px 0;
--webkit-border-radius: 0 3px 3px 0;
-border-radius: 0 3px 3px 0;
+background: #D8334A;
+border-radius: 0 5px 5px 0;
 text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
 }
 &__wrapper__button:hover{
-background: #FA8807;
+background: #BF263C;
 }
 &__wrapper__button:active,
 &__wrapper__button:focus{
@@ -149,12 +149,12 @@ content: '';
 position: absolute;
 border-width: 8px 8px 8px 0;
 border-style: solid solid solid none;
-border-color: transparent #D88F3C transparent;
+border-color: transparent #D8334A transparent;
 top: 12px;
 left: -6px;
 }
 &__wrapper__button:hover:before{
-border-right-color: #FA8807;
+border-right-color: #BF263C;
 }
 &__wrapper__button:focus:before{
 border-right-color: #c42f2f;
@@ -172,16 +172,38 @@ padding: 0;
 }
 
 /*-------------------------------------*/
-
+@include atSmall {
+    .searchbar-container__wrapper {
+        width: 85%;
+        margin: 0 auto;
+    }
+    .searchbar-container__header {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
 
 @include atMedium {
-    .searchbar-container__title__logo {
-        max-width: 80%;
+    .searchbar-container__wrapper {
+        width: 75%;
+    }
+    .searchbar-container__header__title__logo {
+        max-width: 70%;
+    }
+
+    .searchbar-container__header {
+        width: 70%;
     }
 }
 
 @include atLarge {
-    .searchbar-container__title__logo {
+    .searchbar-container__wrapper {
+        width: 35%;
+    }
+    .searchbar-container__header {
+        width: 50%;
+    }
+    .searchbar-container__header__title__logo {
         max-width: 60%;
     }
 }
