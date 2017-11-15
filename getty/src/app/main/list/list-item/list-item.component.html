@@ -2,7 +2,7 @@
   <a (click)="isModalActive = !isModalActive">
     <img class="list-item__image" src="{{singleItemDetails.display_sizes[1].uri}}" [alt]="singleItemDetails.title">
   </a>
-  <div class="list-item__container" *ngIf="isHovered">
+  <div class="list-item__container" *ngIf="isHovered" (click)="isModalActive = !isModalActive">
     <div class="list-item__container__center">
       <p class="list-item__container__center__zoom-icon">&#9906;</p>
     </div>

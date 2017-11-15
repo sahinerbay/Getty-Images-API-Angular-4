@@ -7,7 +7,7 @@ import { GetRouteService } from '../../../_services/get-route.service';
   templateUrl: './list-filter.component.html',
   styleUrls: ['./list-filter.component.scss'],
   providers: [GetRouteService],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Native 
 })
 export class ListFilterComponent implements OnInit, DoCheck {
 
