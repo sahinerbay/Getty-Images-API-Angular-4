@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpService } from '../../_services/http.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class SearchComponent implements OnInit {
 
   //Selected active radio button's value
   private mediaType: string = "images";
+  private filterOptions: Array<string> = ['images', 'videos', 'events'];
 
   private requestedSearchQuery: string;
 

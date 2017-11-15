@@ -12,6 +12,8 @@ import { ListFilterComponent } from './list/list-filter/list-filter.component';
 
 import { RemoveDashPipe } from './../_pipes/remove-dash.pipe';
 
+import { SetSearchIconDirective } from './../_directives/set-search-icon.directive';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { RemoveDashPipe } from './../_pipes/remove-dash.pipe';
     ListItemComponent,
     ListItemModalComponent,
     ListFilterComponent,
-    RemoveDashPipe
+    RemoveDashPipe,
+    SetSearchIconDirective
   ],
   providers: [RemoveDashPipe],
 })

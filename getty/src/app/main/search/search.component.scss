@@ -6,118 +6,120 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+    width: 90%;
 
-.searchbar-container__title {
-    text-align: center;
-}
+    &__title {
+        text-align: center;
+    }
 
-/* Radio Buttons */
-.searchbar-container__media-types--center {
-    text-align: center;
-    font-size: 1rem;
-}
+    /* Category Dropdown Starts */
+    &__wrapper__dropdown {
+        display: flex;
+        float:left;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        border: 1px solid #ccc;
+        width: 25%;
+        height: 100%;
+        border-radius: 3px;
+        overflow: hidden;
+        background-color: #6d6d6d;
+        position: relative;
+        align-self: center;
+      }
+    
+      &__wrapper__dropdown:after {
+        content: "<>";
+        right: 0px;
+        top: 9px;
+        font-size: .8rem;
+        color: white;
+        position: absolute;
+        pointer-events: none;
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+    
+      &__wrapper__dropdown__sorting {
+        font-size: .7rem;
+        font-family: $font_saira;
+        color: #fff;
+        padding-left: 8px;
+        align-self: center;
+        text-transform: capitalize;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+        background-image: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+    
+      &__wrapper__dropdown__sorting:focus {
+        outline-color: black;
+        height: 100%;
+      }
+      &__wrapper__dropdown__sorting:hover {
+        cursor: pointer;
+        outline-color: orange;
+        height: 100%;
+        
+      }
 
-[type="radio"]:checked,
-[type="radio"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
-}
-[type="radio"]:checked + label,
-[type="radio"]:not(:checked) + label
-{
-    position: relative;
-    padding-left: 28px;
-    cursor: pointer;
-    line-height: 20px;
-    display: inline-block;
-    color: #666;
-}
-[type="radio"]:checked + label:before,
-[type="radio"]:not(:checked) + label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 18px;
-    height: 18px;
-    border: 1px solid #ddd;
-    border-radius: 100%;
-    background: #fff;
-}
-[type="radio"]:checked + label:after,
-[type="radio"]:not(:checked) + label:after {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background: #F87DA9;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    border-radius: 100%;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-}
-[type="radio"]:not(:checked) + label:after {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-}
-[type="radio"]:checked + label:after {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
+      /* Category Dropdown Ends */
 
-/* search box */
-.searchbar-container__wrapper {
+    /* Search Box Starts*/
+&__wrapper {
     width: 100%;
+    height: 40px;
 border-radius: 10px;
 box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
 }
 
-.searchbar-container__wrapper--margin-bottom {
-    margin-bottom: 15px;
-}
-.searchbar-container__wrapper:after {
+&__wrapper:after {
     content: "";
 display: table;
 clear: both;
 }
 
-.searchbar-container__wrapper__input {
-    width: 75%;
+&__wrapper__input {
+    width: 60%;
+    height: 100%;
     box-sizing: border-box;
 padding: 10px 5px;
 float: left;
-font: bold 15px 'Raleway', sans-serif;
+font-size: 1rem;
+font-family: $font_saira;
 border: 1px solid #ccc;
 background: #fff;
 border-radius: 3px 0 0 3px;
 }
-.searchbar-container__wrapper__input:focus {
+&__wrapper__input:focus {
 outline: 0;
 background: #fff;
 -moz-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
 -webkit-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
 box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
 }
-.searchbar-container__wrapper__input::-webkit-input-placeholder {
+&__wrapper__input::-webkit-input-placeholder {
 color: #999;
 font-weight: normal;
 font-style: italic;
 }
-.searchbar-container__wrapper__input:-moz-placeholder {
+&__wrapper__input:-moz-placeholder {
 color: #999;
 font-weight: normal;
 font-style: italic;
 }
-.searchbar-container__wrapper__input:-ms-input-placeholder {
+&__wrapper__input:-ms-input-placeholder {
 color: #999;
 font-weight: normal;
 font-style: italic;
 }
-.searchbar-container__wrapper__button {
+&__wrapper__button {
 overflow: visible;
 position: relative;
 float: right;
@@ -125,7 +127,7 @@ border: 0;
 padding: 0;
 cursor: pointer;
 height: 40px;
-width: 25%;
+width: 15%;
 font: bold 15px/40px 'Raleway', sans-serif;
 color: #fff;
 text-transform: uppercase;
@@ -135,14 +137,14 @@ background: #D88F3C;
 border-radius: 0 3px 3px 0;
 text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
 }
-.searchbar-container__wrapper__button:hover{
+&__wrapper__button:hover{
 background: #FA8807;
 }
-.searchbar-container__wrapper__button:active,
-.searchbar-container__wrapper__button:focus{
+&__wrapper__button:active,
+&__wrapper__button:focus{
 background: #c42f2f;
 }
-.searchbar-container__wrapper__button:before {
+&__wrapper__button:before {
 content: '';
 position: absolute;
 border-width: 8px 8px 8px 0;
@@ -151,16 +153,24 @@ border-color: transparent #D88F3C transparent;
 top: 12px;
 left: -6px;
 }
-.searchbar-container__wrapper__button:hover:before{
+&__wrapper__button:hover:before{
 border-right-color: #FA8807;
 }
-.searchbar-container__wrapper__button:focus:before{
+&__wrapper__button:focus:before{
 border-right-color: #c42f2f;
 }
-.searchbar-container__wrapper__button::-moz-focus-inner {
+&__wrapper__button::-moz-focus-inner {
 border: 0;
 padding: 0;
 }
+&__wrapper__button__icon {
+    display: inline-block;
+    font-size: 2rem;
+    transform: rotate(-45deg);
+}
+/* Search Box Ends */
+}
+
 /*-------------------------------------*/
 
 
@@ -175,4 +185,3 @@ padding: 0;
         max-width: 60%;
     }
 }
-

@@ -1,21 +1,19 @@
 <div class="searchbar-container">
   <h1 class="searchbar-container__title">
-    <img class="searchbar-container__title__logo"srcset="assets/logo.jpg  1024w,
+    <img class="searchbar-container__title__logo" srcset="assets/logo.jpg  1024w,
     assets/logo-mobile.jpg 640w,
       assets/logo-mobile.jpg  320w" src="assets/logo-mobile.jpg" alt="A rad wolf">
   </h1>
 
-  <div class="searchbar-container__wrapper searchbar-container__wrapper--margin-bottom">
+  <div class="searchbar-container__wrapper">
+    <div class="searchbar-container__wrapper__dropdown">
+      <select class="searchbar-container__wrapper__dropdown__sorting">
+        <option *ngFor="let option of filterOptions" [value]="option" (change)="setRadioButton($event)" >{{option}}</option>
+      </select>
+    </div>
     <input class="searchbar-container__wrapper__input" type="text" placeholder="Search..." required [(ngModel)]="requestedSearchQuery">
-    <button class="searchbar-container__wrapper__button" type="submit" [routerLink]="['/search', mediaType]" [queryParams]="{query : requestedSearchQuery}">Search</button>
-  </div>
-
-  <div class="searchbar-container__media-types searchbar-container__media-types--center">
-    <input type="radio" name="radio" id="images" value="images" [checked]="true" (change)="setRadioButton($event)">
-    <label for="images">Images</label>
-    <input type="radio" name="radio" id="videos" value="videos" (change)="setRadioButton($event)">
-    <label for="videos">Videos</label>
-    <input type="radio" name="radio" id="events" value="events" (change)="setRadioButton($event)">
-    <label for="events">Events</label>
+    <button class="searchbar-container__wrapper__button" type="submit" [routerLink]="['/search', mediaType]" [queryParams]="{query : requestedSearchQuery}">
+      <span class="searchbar-container__wrapper__button__icon">&#9906;</span>
+    </button>
   </div>
 </div>
