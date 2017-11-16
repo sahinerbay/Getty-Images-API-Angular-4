@@ -2,7 +2,7 @@
   <!-- <p class="filterbar__search-results">Search Results For: {{currentRoute}}, number of results: {{numberOfResults}}</p> -->
   <div class="filterbar__dropdown">
     <select class="filterbar__dropdown__sorting" (change)="sendRequest($event)">
-      <option *ngFor="let option of filterOptions | removeDash" [value]="option">{{option}}</option>
+      <option *ngFor="let option of filterOptions" [value]="option.value">{{option.name}}</option>
     </select>
   </div>
 </div>

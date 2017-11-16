@@ -21,6 +21,15 @@ export class ListComponent implements OnInit {
   private mediaType: string;
   private numberOfResults: number;
 
+  checkMediaType(str, mediaType):string {
+    if(/(image|event)/g.test(str)) {
+      mediaType = 'images'
+    } else {
+      mediaType = 'videos'
+    }
+    return mediaType;
+  }
+
   ngOnInit() {
     
     this.routeService.getActiveRoute().subscribe(params => this.mediaType = params.get('mediaType'));
@@ -30,8 +39,9 @@ export class ListComponent implements OnInit {
     this.httpService.getPosts(this.mediaType, this.searchQuery);
 
     this.sharedData.getSharedData().subscribe((result:Getty) => {
-      this.retrievedItems = result[this.mediaType];
+      this.retrievedItems = result[this.checkMediaType(this.mediaType, this.mediaType)];
       this.numberOfResults = result['result_count'];
+      console.log(result)
     });
   }
 

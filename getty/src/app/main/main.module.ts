@@ -10,10 +10,6 @@ import { ListItemComponent } from './list/list-item/list-item.component';
 import { ListItemModalComponent } from './list/list-item/list-item-modal/list-item-modal.component';
 import { ListFilterComponent } from './list/list-filter/list-filter.component';
 
-import { RemoveDashPipe } from './../_pipes/remove-dash.pipe';
-
-import { SetSearchIconDirective } from './../_directives/set-search-icon.directive';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -25,9 +21,7 @@ import { SetSearchIconDirective } from './../_directives/set-search-icon.directi
     ListItemComponent,
     ListItemModalComponent,
     ListFilterComponent,
-    RemoveDashPipe,
-    SetSearchIconDirective
   ],
-  providers: [RemoveDashPipe],
+  providers: [],
 })
 export class MainModule { }

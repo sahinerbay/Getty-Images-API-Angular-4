@@ -7,7 +7,7 @@ import { GetRouteService } from '../../../_services/get-route.service';
   templateUrl: './list-filter.component.html',
   styleUrls: ['./list-filter.component.scss'],
   providers: [GetRouteService],
-  encapsulation: ViewEncapsulation.Native 
+  encapsulation: ViewEncapsulation.Native
 })
 export class ListFilterComponent implements OnInit, DoCheck {
 
@@ -23,9 +23,22 @@ export class ListFilterComponent implements OnInit, DoCheck {
   ngDoCheck() {
   }
 
-  private filterOptions: Array<string> = ['best_match', 'most_popular', 'newest'];
+  private filterOptions: Array<any> = [
+    {
+      name: 'Best Match',
+      value: 'best_match'
+    },
+    {
+      name: 'Most Popular',
+      value: 'most_popular'
+    },
+    {
+      name: 'Newest',
+      value: 'newest'
+    }
+  ];
 
-  sendRequest(event):void {
+  sendRequest(event): void {
     this.httpService.getPosts(this.currentParameter, this.currentRoute, event.target.value);
   }
 }

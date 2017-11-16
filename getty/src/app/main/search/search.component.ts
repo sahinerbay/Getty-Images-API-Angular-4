@@ -1,5 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { HttpService } from '../../_services/http.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'gt-search',
@@ -8,18 +7,51 @@ import { HttpService } from '../../_services/http.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private httpService: HttpService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
   //Selected active radio button's value
-  private mediaType: string = "images";
-  private filterOptions: Array<string> = ['images', 'videos', 'events'];
-
+  private mediaType: string;;
   private requestedSearchQuery: string;
 
-  setRadioButton(event): void {
+  private filterOptions: Array<any> = [
+    {
+      name: 'images all',
+      value: 'images'
+    },
+    {
+      name: '-creative images',
+      value: 'images/creative'
+    },
+    {
+      name: '-editorial images',
+      value: 'images/editorial'
+    },
+    {
+      name: 'videos all',
+      value: 'videos'
+    },
+    {
+      name: '-creative videos',
+      value: 'videos%2Fcreative'
+    },
+    {
+      name: '-editorial videos',
+      value: 'videos/editorial'
+    },
+    {
+      name: 'events',
+      value: 'events'
+    }
+  ];
+
+  setMediaType(event):void {
     this.mediaType = event.target.value;
   }
+
+  
+
 }
+

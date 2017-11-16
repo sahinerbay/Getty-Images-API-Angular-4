@@ -10,7 +10,7 @@ export class HttpService {
   constructor(private httpClient: HttpClient, private sharedData: SharedDataService) { }
 
   createUrl(mediaType, searchQuery): string {
-    return `https://api.gettyimages.com/v3/search/${mediaType}/creative?`;
+    return `https://api.gettyimages.com/v3/search/${mediaType}?`;
   }
 
   //handle later if searchquery null, empty?
@@ -22,7 +22,7 @@ export class HttpService {
         headers: new HttpHeaders().set('Api-Key', '6px2cw4fyyry8y68dvx3hcar'),
         params: new HttpParams().set('phrase', searchQuery).set('fields', 'detail_set').set('sort_order', order)
       }).subscribe((result:Getty) => {
-        this.sharedData.createSharedData(result)
+        this.sharedData.createSharedData(result);
       })
   };
 }
