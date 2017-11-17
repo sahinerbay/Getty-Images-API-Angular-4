@@ -23,6 +23,7 @@ export class HttpService {
         params: new HttpParams().set('phrase', searchQuery).set('fields', 'detail_set').set('sort_order', order).set('orientations', 'Horizontal')
       }).subscribe((result:Getty) => {
         this.sharedData.createSharedData(result);
+        console.log(result)
       })
   };
 }

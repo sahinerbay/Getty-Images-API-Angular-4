@@ -22,7 +22,6 @@ export class SharedDataService {
     return this.sortOptions.asObservable();
   }
 
-
   createSharedData(message: Getty) {
     this.messageSource.next(message);
   }

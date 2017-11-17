@@ -16,7 +16,7 @@
     </div>
     <input class="searchbar-container__wrapper__input" type="text" placeholder="Search..." required [(ngModel)]="searchQuery"
       (keypress)="setRoutes($event, mediaType, searchQuery)">
-    <button class="searchbar-container__wrapper__button" type="submit" (click)="setRoutes($event, mediaType, searchQuery)">
+    <button class="searchbar-container__wrapper__button" type="submit" (click)="setRoutes($event, mediaType, searchQuery); sendRequest();">
       <span class="searchbar-container__wrapper__button__icon">&#9906;</span>
     </button>
   </div>
