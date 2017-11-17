@@ -19,7 +19,7 @@
       Since the hamburger menu icon is only visible in small screens, 'navbar__menu--responsive' can be changed only in small screens.
   -->
   <div [ngClass]="{'navbar__menu': true, 'navbar--responsive': !isHamburgerButtonActive}">
-    <div class="navbar__menu__logo" *ngIf = "isLogoIconHidden">
+    <div class="navbar__menu__logo" *ngIf = "isLogoIconVisible">
       <img class="navbar__menu__logo__image" src="assets\logo-mobile-icon.jpg" alt=".....">
     </div>
     <div class="navbar__menu__container">

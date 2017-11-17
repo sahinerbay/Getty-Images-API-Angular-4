@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  private isLogoIconVisible: boolean= false;
   private isHamburgerButtonActive:boolean = true;
   private menuLinksNames: Array<string> = ['Home', 'Images', 'Videos', 'Events'];
 

@@ -10,6 +10,8 @@ import { ListItemComponent } from './list/list-item/list-item.component';
 import { ListItemModalComponent } from './list/list-item/list-item-modal/list-item-modal.component';
 import { ListFilterComponent } from './list/list-filter/list-filter.component';
 
+import { SettingsService } from './../_services/settings.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -22,6 +24,6 @@ import { ListFilterComponent } from './list/list-filter/list-filter.component';
     ListItemModalComponent,
     ListFilterComponent,
   ],
-  providers: [],
+  providers: [SettingsService],
 })
 export class MainModule { }

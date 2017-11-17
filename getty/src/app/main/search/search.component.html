@@ -3,18 +3,20 @@
     <h1 class="searchbar-container__header__title">
       <img class="searchbar-container__header__title__logo" srcset="assets/logo.jpg  1024w,
     assets/logo-mobile.jpg 640w,
-      assets/logo-mobile.jpg  320w" src="assets/logo-mobile.jpg" alt="A rad wolf">
+      assets/logo-mobile.jpg  320w" src="assets/logo-mobile.jpg" alt="Logo mobile">
     </h1>
   </div>
 
   <div class="searchbar-container__wrapper">
     <div class="searchbar-container__wrapper__dropdown">
+      <!-- Sets the media type of api request -->
       <select class="searchbar-container__wrapper__dropdown__selectbar" (click)="setMediaType($event)">
-        <option *ngFor="let option of filterOptions" [value]="option.value" >{{option.name}}</option>
+        <option *ngFor="let option of filterList" [value]="option.value">{{option.name}}</option>
       </select>
     </div>
-    <input class="searchbar-container__wrapper__input" type="text" placeholder="Search..." required [(ngModel)]="requestedSearchQuery">
-    <button class="searchbar-container__wrapper__button" type="submit" [routerLink]="['/search', mediaType]" [queryParams]="{query : requestedSearchQuery}">
+    <input class="searchbar-container__wrapper__input" type="text" placeholder="Search..." required [(ngModel)]="searchQuery"
+      (keypress)="setRoutes($event, mediaType, searchQuery)">
+    <button class="searchbar-container__wrapper__button" type="submit" (click)="setRoutes($event, mediaType, searchQuery)">
       <span class="searchbar-container__wrapper__button__icon">&#9906;</span>
     </button>
   </div>

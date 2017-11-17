@@ -12,95 +12,13 @@
         text-align: center;
     }
 
-    /* Category Dropdown Starts */
-    &__wrapper__dropdown {
-        float:left;
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-        width: 25%;
-        height: 40px;
-        border-radius: 5px;
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-        position: relative;
-        align-self: center;
-      }
-    
-      &__wrapper__dropdown:after {
-        position: absolute;
-        content: "";
-        border-left: 2px solid white;
-        border-top: 2px solid white;
-        padding: 5px;
-        right: 10px;
-        top: 20%;
-        -moz-transform: rotate(-135deg);
-        -ms-transform: rotate(-135deg);
-        -o-transform: rotate(-135deg);
-        -webkit-transform: rotate(-135deg);
-        transform: rotate(-135deg);
-      }
-
-      &__wrapper__dropdown:active:after {
-        right: 8px;
-        top: 21%;
-      }
-    
-      &__wrapper__dropdown__selectbar {
-        font-size: .7rem;
-        font-family: $font_saira;
-        color: #fff;
-        padding-left: 8px;
-        align-self: center;
-        text-transform: capitalize;
-        width: 100%;
-        height: 100%;
-        border: none;
-        box-shadow: none;
-        background-color: #434A54;
-        background-image: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        display: inline-block;
-      }
-    
-      &__wrapper__dropdown__selectbar:focus {
-        // outline-color: black;
-        // height: 100%;
-      }
-      &__wrapper__dropdown__selectbar:hover {
-        // cursor: pointer;
-        // outline-color: orange;
-        // height: 100%;
-        
-      }
-
-      &__wrapper__dropdown__anchor {
-        display: inline-block;
-        position: relative;
-        height: 40px;
-        width: 100%;
-        box-sizing: border-box;
-        cursor: pointer;
-        padding: 5px 50px 5px 10px;
-        border: 1px solid #ccc;
-      }
-      /* Category Dropdown Ends */
-
     /* Search Box Starts*/
 &__wrapper {
     width: 100%;
     height: 40px;
+    display: flex;
 border-radius: 10px;
 box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-}
-
-&__wrapper:after {
-    content: "";
-display: table;
-clear: both;
 }
 
 &__wrapper__input {
@@ -108,7 +26,6 @@ clear: both;
     height: 100%;
     box-sizing: border-box;
 padding: 10px 5px;
-float: left;
 font-size: 1rem;
 font-family: $font_saira;
 border: 1px solid #ccc;
@@ -184,6 +101,81 @@ padding: 0;
     transform: rotate(-45deg);
 }
 /* Search Box Ends */
+    /* Category Dropdown Starts */
+    &__wrapper__dropdown {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        width: 25%;
+        height: 40px;
+        border-radius: 5px;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        position: relative;
+        align-self: center;
+      }
+    
+      &__wrapper__dropdown:after {
+        position: absolute;
+        content: "";
+        border-left: 2px solid white;
+        border-top: 2px solid white;
+        padding: 5px;
+        right: 10px;
+        top: 20%;
+        -moz-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+        -o-transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+      }
+
+      &__wrapper__dropdown:active:after {
+        right: 8px;
+        top: 21%;
+      }
+    
+      &__wrapper__dropdown__selectbar {
+        font-size: .7rem;
+        font-family: $font_saira;
+        color: #fff;
+        padding-left: 8px;
+        align-self: center;
+        text-transform: capitalize;
+        width: 100%;
+        height: 100%;
+        border: none;
+        box-shadow: none;
+        background-color: #434A54;
+        background-image: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+      }
+    
+      &__wrapper__dropdown__selectbar:focus {
+        // outline-color: black;
+        // height: 100%;
+      }
+      &__wrapper__dropdown__selectbar:hover {
+        // cursor: pointer;
+        // outline-color: orange;
+        // height: 100%;
+        
+      }
+
+      &__wrapper__dropdown__anchor {
+        display: inline-block;
+        position: relative;
+        height: 40px;
+        width: 100%;
+        box-sizing: border-box;
+        cursor: pointer;
+        padding: 5px 50px 5px 10px;
+        border: 1px solid #ccc;
+      }
+      /* Category Dropdown Ends */
 }
 
 /*-------------------------------------*/

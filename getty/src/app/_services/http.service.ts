@@ -20,7 +20,7 @@ export class HttpService {
     this.httpClient
       .get(url, {
         headers: new HttpHeaders().set('Api-Key', '6px2cw4fyyry8y68dvx3hcar'),
-        params: new HttpParams().set('phrase', searchQuery).set('fields', 'detail_set').set('sort_order', order)
+        params: new HttpParams().set('phrase', searchQuery).set('fields', 'detail_set').set('sort_order', order).set('orientations', 'Horizontal')
       }).subscribe((result:Getty) => {
         this.sharedData.createSharedData(result);
       })

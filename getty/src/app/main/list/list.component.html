@@ -1,4 +1,8 @@
-<gt-list-filter [currentRoute] = "searchQuery" [currentParameter]= "mediaType" [numberOfResults] = "numberOfResults"></gt-list-filter>
-<div class="list-item__container">
-  <gt-list-item *ngFor="let singleItem of retrievedItems" [singleItemDetails]="singleItem"></gt-list-item>
+<gt-list-filter [currentRoute]="searchQuery" [currentParameter]="mediaType" [numberOfResults]="numberOfResults"></gt-list-filter>
+
+<div class="list-items">
+  <p>{{numberOfResults}} {{mediaType}} found</p>
+  <div class="list-items__container">
+    <gt-list-item *ngFor="let singleItem of retrievedItems" [singleItemDetails]="singleItem"></gt-list-item>
+  </div>
 </div>

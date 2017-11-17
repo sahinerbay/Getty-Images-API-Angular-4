@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { HttpService } from '../../_services/http.service';
 import { SharedDataService } from '../../_services/shared-data.service';
 import { GetRouteService } from '../../_services/get-route.service';
@@ -10,7 +10,7 @@ import { Getty } from '../../_interfaces/getty';
   styleUrls: ['./list.component.scss'],
   providers: [GetRouteService]
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, DoCheck {
 
   constructor(private httpService: HttpService,
     private sharedData: SharedDataService,
@@ -41,7 +41,13 @@ export class ListComponent implements OnInit {
     this.sharedData.getSharedData().subscribe((result:Getty) => {
       this.retrievedItems = result[this.checkMediaType(this.mediaType, this.mediaType)];
       this.numberOfResults = result['result_count'];
-      console.log(result)
+    });
+  }
+
+  ngDoCheck() {
+    this.sharedData.getSharedData().subscribe((result:Getty) => {
+      this.retrievedItems = result[this.checkMediaType(this.mediaType, this.mediaType)];
+      this.numberOfResults = result['result_count'];
     });
   }
 

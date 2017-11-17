@@ -18,4 +18,11 @@ export class GetRouteService {
     return this.activatedRoute.queryParamMap;
   }
 
+  setRoutes(event, mediaType, searchQuery) {
+    if ((event.target.nodeName === ('SPAN' || 'BUTTON'))|| event.keyCode === 13) {
+      this.router.navigate(['/search', mediaType], { queryParams: { query: searchQuery } })
+    }
+  }
+
+
 }
