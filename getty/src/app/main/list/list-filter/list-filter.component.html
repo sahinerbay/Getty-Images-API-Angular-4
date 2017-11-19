@@ -3,20 +3,19 @@
     <div class="filterbar__searchbar__sort">
       <!-- Sets the media type of api request -->
       <select class="filterbar__searchbar__sort__select" (click)="setMediaType($event)">
-        <option #hi *ngFor="let option of sortOptions" [selected]="hi.value === currentSort" [value]="option.value">{{option.name}}</option>
+        <option #filterByMedia *ngFor="let option of filterMediaTypeOptions" [selected]="filterByMedia.value === currentMediaTypeOption" [value]="option.value">{{option.name}}</option>
       </select>
     </div>
-    <input class="filterbar__searchbar__input" type="text" placeholder="Search..." required [value]="currentRoute" [(ngModel)]="searchQuery"
-      (keypress)="setRoutes($event, mediaType, searchQuery)">
-    <button class="filterbar__searchbar__button" type="submit" (click)="setRoutes($event, mediaType, searchQuery)">
+    <input class="filterbar__searchbar__input" type="text" placeholder="Search..." required [(ngModel)]="currentSearchQuery"
+      (keypress)="sendRequest($event, currentMediaTypeOption, currentSearchQuery)">
+    <button class="filterbar__searchbar__button" type="submit" (click)="sendRequest($event, currentMediaTypeOption, currentSearchQuery);">
       <span class="filterbar__searchbar__button__icon">&#9906;</span>
     </button>
   </div>
-  <!-- <p class="filterbar__search-results">Search Results For: {{currentRoute}}, number of results: {{numberOfResults}}</p> -->
   <div class="filterbar__dropdown">
     <div class="filterbar__dropdown__container">
-      <select class="filterbar__dropdown__container__sorting" (change)="sendRequest($event)">
-        <option *ngFor="let option of filterOptions" [value]="option.value">{{option.name}}</option>
+      <select class="filterbar__dropdown__container__sorting" (change)="sortByRequest($event)">
+        <option #sortByOrder *ngFor="let option of sortByOptions" [selected]="sortByOrder.value === currentSortOrder" [value]="option.value">{{option.name}}</option>
       </select>
     </div>
   </div>

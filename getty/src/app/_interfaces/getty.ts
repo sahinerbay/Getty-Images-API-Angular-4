@@ -1,4 +1,4 @@
 export interface Getty {
-    result: string,
-    images: Array<string>
+    result_count: string,
+    mediaType: Array<string>
 }

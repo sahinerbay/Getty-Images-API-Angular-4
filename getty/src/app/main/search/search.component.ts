@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 /* Interface */
-import { FilterOptions } from '../../_interfaces/filterOptions';
+import { SortAndFilterOptions } from '../../_interfaces/sortAndFilterOptions';
 
 /* Service */
 import { SettingsService } from './../../_services/settings.service';
@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
   constructor(private httpService: HttpService, private settingsService: SettingsService, private routeService: GetRouteService) { }
 
   // Static data that is coming from settingsService 
-  private filterList: FilterOptions;
+  private filterMediaTypeOptions: SortAndFilterOptions;
 
   //Selected option value 
   private mediaType: string;
@@ -27,10 +27,10 @@ export class SearchComponent implements OnInit {
   private searchQuery: string;
 
   ngOnInit() {
-    //Fetch filter list from service
-    this.filterList = this.settingsService.sortOptions;
+    // Creates filter select bar by media type
+    this.filterMediaTypeOptions = this.settingsService.filterMediaTypeOptions;
     //Assign default value ('images') for filtering list -If nothing is selected then default is image
-    this.mediaType = this.filterList[0].value;
+    this.mediaType = this.filterMediaTypeOptions[0].value;
   }
 
   // Media type is used in http.service to create URL in order to request the data from api
@@ -38,14 +38,12 @@ export class SearchComponent implements OnInit {
     this.mediaType = event.target.value;
   }
 
-  setRoutes(event, media, query) {
-    this.routeService.setRoutes(event, media, query);
+  sendRequest(event, mediaType, searchQuery) {
+    if (event.target.nodeName === 'SPAN' ||
+      event.target.nodeName === 'BUTTON' ||
+      event.keyCode === 13) {
+      this.routeService.setRoutes(mediaType, searchQuery);
+      this.httpService.getPosts(mediaType, searchQuery);
+    }
   }
-
-  sendRequest() {
-    this.httpService.getPosts(this.mediaType, this.searchQuery);
-    console.log('works')
-  }
-
 }
-

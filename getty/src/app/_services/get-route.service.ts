@@ -18,8 +18,8 @@ export class GetRouteService {
     return this.activatedRoute.queryParamMap;
   }
 
-  setRoutes(mediaType, searchQuery) {
-    this.router.navigate(['/search', mediaType], { queryParams: { query: searchQuery } })
+  setRoutes(mediaType, searchQuery, sortOrder = 'best_match') {
+    this.router.navigate(['/search', mediaType], { queryParams: { query: searchQuery, sort_order: sortOrder } })
   }
 
 }

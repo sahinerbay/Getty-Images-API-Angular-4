@@ -1,8 +1,10 @@
-<gt-list-filter [currentRoute]="currentSearchQuery" [currentParameter]="currentMediaType" [numberOfResults]="numberOfResults"></gt-list-filter>
+<gt-list-filter [numberOfResults]="numberOfResults"></gt-list-filter>
 
 <div class="list-items">
   <p>{{numberOfResults}} {{mediaType}} found</p>
   <div class="list-items__container">
+    <!-- Loop child component -list-item.component -->
     <gt-list-item *ngFor="let singleItem of retrievedItems" [singleItemDetails]="singleItem"></gt-list-item>
+    <!-- End child component -->
   </div>
 </div>

@@ -11,12 +11,12 @@
     <div class="searchbar-container__wrapper__dropdown">
       <!-- Sets the media type of api request -->
       <select class="searchbar-container__wrapper__dropdown__selectbar" (click)="setMediaType($event)">
-        <option *ngFor="let option of filterList" [value]="option.value">{{option.name}}</option>
+        <option *ngFor="let option of filterMediaTypeOptions" [value]="option.value">{{option.name}}</option>
       </select>
     </div>
     <input class="searchbar-container__wrapper__input" type="text" placeholder="Search..." required [(ngModel)]="searchQuery"
-      (keypress)="setRoutes($event, mediaType, searchQuery)">
-    <button class="searchbar-container__wrapper__button" type="submit" (click)="setRoutes($event, mediaType, searchQuery); sendRequest();">
+      (keypress)="sendRequest($event, mediaType, searchQuery)">
+    <button class="searchbar-container__wrapper__button" type="submit" (click)="sendRequest($event, mediaType, searchQuery)">
       <span class="searchbar-container__wrapper__button__icon">&#9906;</span>
     </button>
   </div>
