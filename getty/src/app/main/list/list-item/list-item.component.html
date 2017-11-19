@@ -1,12 +1,22 @@
-<div class="list-item" (mouseenter)="isHovered = !isHovered" (mouseleave)="isHovered = !isHovered">
-  <a (click)="isModalActive = !isModalActive">
-    <img class="list-item__image" src="{{singleItemDetails.display_sizes[1].uri}}" [alt]="singleItemDetails.title">
-  </a>
-  <div class="list-item__container" *ngIf="isHovered" (click)="isModalActive = !isModalActive">
-    <div class="list-item__container__center">
-      <p class="list-item__container__center__zoom-icon">&#9906;</p>
+<div [ngClass]="{'list-item': !isPreviewDetailsOnChild, 'list-item__details': isPreviewDetailsOnChild }" (mouseenter)="setHoversIn()"
+  (mouseleave)="setHoversOut()">
+  <div [ngClass]="{'list-item__container': !isPreviewDetailsOnChild, 'list-item__details__thumbnail' : isPreviewDetailsOnChild }">
+    <a [ngClass]="{'list-item__container__link': !isPreviewDetailsOnChild, 'list-item__details__thumbnail__link' : isPreviewDetailsOnChild }" (click)="isModalActive = !isModalActive">
+      <img [ngClass]="{'list-item__container__link__image': !isPreviewDetailsOnChild, 'list-item__details__thumbnail__link__image': isPreviewDetailsOnChild }" [src]="thumbnailSource" [alt]="singleItemDetails.title">
+    </a>
+  </div>
+
+  <div *ngIf="isPreviewDetailsOnChild" class="list-item__details__info">
+    <p class="list-item__details__info__title">{{singleItemDetails.title}}</p>
+    <p class="list-item__details__info__artist">by {{singleItemDetails.artist}}</p>
+    <p class="list-item__details__info__artist">category: {{singleItemDetails.editorial_segments[0]}}</p>
+  </div>
+
+  <div class="list-item__hover" *ngIf="isHovered && !isPreviewDetailsOnChild" (click)="isModalActive = !isModalActive">
+    <div class="list-item__hover__center">
+      <p class="list-item__hover__center__zoom-icon">&#9906;</p>
     </div>
-    <p class="list-item__container__title">{{singleItemDetails.title}}</p>
+    <p class="list-item__hover__title">{{singleItemDetails.title}}</p>
   </div>
 </div>
 <gt-list-item-modal [itemDetails]="singleItemDetails" *ngIf="isModalActive"></gt-list-item-modal>

@@ -18,7 +18,13 @@ import { HelpersService } from './../../../_services/helpers.service';
 })
 export class ListFilterComponent implements OnInit {
 
-  constructor(private httpService: HttpService, private routeService: GetRouteService, private settingService: SettingsService, private dataService: SharedDataService, private helperService: HelpersService) { }
+  constructor(
+    private httpService: HttpService,
+    private routeService: GetRouteService,
+    private settingService: SettingsService,
+    private dataService: SharedDataService,
+    private helperService: HelpersService
+  ) { }
 
   // Retrieved from parent component list-item.component
   @Input() private numberOfResults: number;
@@ -53,12 +59,16 @@ export class ListFilterComponent implements OnInit {
     this.currentMediaTypeOption = event.target.value;
   }
 
+  setPreviewDetails(previewCondition:boolean) {
+    this.dataService.setPreviewDetails(previewCondition);
+  }
+
   sendRequest(event, mediaType, searchQuery) {
     if (event.target.nodeName === 'SPAN' ||
       event.target.nodeName === 'BUTTON' ||
       event.keyCode === 13) {
-      this.routeService.setRoutes(mediaType, searchQuery);
-      this.httpService.getPosts(mediaType, searchQuery);
+      this.routeService.setRoutes(mediaType, searchQuery, this.currentSortOrder);
+      this.httpService.getPosts(mediaType, searchQuery, this.currentSortOrder);
     }
   }
 

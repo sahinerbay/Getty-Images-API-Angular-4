@@ -35,6 +35,44 @@
         
         
     }
+
+    &-details {
+        top: 145px;
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+    
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-row-gap: 50px;
+    }
+
+        @include atSmall {
+            top: 100px;
+            width: 85%;
+            &__container {
+                grid-gap: 35px;
+            }
+        }
+    
+        @include atMedium {
+            width: 90%;
+            &__container {
+                grid-gap: 35px;
+            }
+            
+        }
+    
+        @include atLarge {
+            width: 90%;
+            &__container{
+            }
+            
+            
+        }
+
+    }
 }
 
 

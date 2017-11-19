@@ -11,26 +11,21 @@ export class SharedDataService {
   constructor() { }
 
   private messageSource = new ReplaySubject<Getty>(1);
-  private sortOptions = new ReplaySubject<string>(1);
-  private filterOptions = new ReplaySubject<Getty>(1);
-
-  setSortOptions (option:string) {
-    this.sortOptions.next(option);
-  }
-
-  getSortOptions(): Observable<string> {
-    return this.sortOptions.asObservable();
-  }
-
   createSharedData(message: Getty) {
     this.messageSource.next(message);
   }
-
   getSharedData(): Observable<Getty> {
     return this.messageSource.asObservable();
   }
-
   clearSharedData() {
     this.messageSource.next(null);
+  }
+
+  private isPreviewDetailsOn = new BehaviorSubject<boolean>(true);
+  setPreviewDetails(isPreviewDetailsOn: boolean) {
+    this.isPreviewDetailsOn.next(isPreviewDetailsOn);
+  }
+  getPreviewDetails(): Observable<boolean> {
+    return this.isPreviewDetailsOn.asObservable();
   }
 }

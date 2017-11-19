@@ -13,7 +13,10 @@
     </button>
   </div>
   <div class="filterbar__dropdown">
+      <a (click) = "setPreviewDetails(false)"><img src="assets/grid.png" alt=""></a>
+      <a (click) = "setPreviewDetails(true)"><img src="assets/thumbnail.png" alt=""></a>
     <div class="filterbar__dropdown__container">
+      
       <select class="filterbar__dropdown__container__sorting" (change)="sortByRequest($event)">
         <option #sortByOrder *ngFor="let option of sortByOptions" [selected]="sortByOrder.value === currentSortOrder" [value]="option.value">{{option.name}}</option>
       </select>
