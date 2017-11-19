@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { FilterOptions } from '../_interfaces/filterOptions';
+import { SortAndFilterOptions } from '../_interfaces/sortAndFilterOptions';
 
 @Injectable()
 export class SettingsService {
 
   constructor() { }
 
-  private _sortOptions: FilterOptions = [
+  private _filterMediaTypeOptions: SortAndFilterOptions = [
     {
       name: 'images all',
       value: 'images',
@@ -37,9 +37,9 @@ export class SettingsService {
     }
   ];
 
-  get sortOptions(): FilterOptions { return this._sortOptions; }
+  get filterMediaTypeOptions(): SortAndFilterOptions { return this._filterMediaTypeOptions; }
 
-  private _filterOptions: FilterOptions = [
+  private _sortByOptions: SortAndFilterOptions = [
     {
       name: 'Best Match',
       value: 'best_match'
@@ -54,8 +54,6 @@ export class SettingsService {
     }
   ];
 
-  get filterOptions(): FilterOptions { return this._filterOptions; }
-
-
+  get sortByOptions(): SortAndFilterOptions { return this._sortByOptions; }
 
 }

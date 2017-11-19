@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import { SharedDataService } from './shared-data.service';
 import { Getty } from '../_interfaces/getty';
@@ -21,9 +22,23 @@ export class HttpService {
       .get(url, {
         headers: new HttpHeaders().set('Api-Key', '6px2cw4fyyry8y68dvx3hcar'),
         params: new HttpParams().set('phrase', searchQuery).set('fields', 'detail_set').set('sort_order', order).set('orientations', 'Horizontal')
-      }).subscribe((result:Getty) => {
+      }).subscribe((result: Getty) => {
         this.sharedData.createSharedData(result);
         console.log(result)
-      })
+      },
+      //Error
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // A client-side or network error occurred. Handle it accordingly.
+          console.log('An error occurred:', err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // The response body may contain clues as to what went wrong,
+          console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+        }
+      },
+
+      //completed
+      () => console.log('completed'))
   };
 }
