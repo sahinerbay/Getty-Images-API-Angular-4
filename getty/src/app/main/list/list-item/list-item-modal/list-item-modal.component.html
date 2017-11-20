@@ -1,5 +1,11 @@
-<div class="modal">
-  <div class="modal-content">
-    <img [src] = "itemDetails.display_sizes[0].uri" [alt]="itemDetails.title">
+<div class="modal" gtTarget (click) = "setModalInactive($event)">
+  <div class="modal__content">
+    <span class="modal__content__close" (click) = "setModalInactive($event)">&times;</span>
+    <div class="modal__content__frame">
+      <img class="modal__content__frame__image" [src]="itemDetails.display_sizes[0].uri" [alt]="itemDetails.title">
+    </div>
+    <div class="modal__content__info">
+      <p>{{itemDetails.caption}}</p>
+    </div>
   </div>
 </div>

@@ -12,6 +12,7 @@ import { ListFilterComponent } from './list/list-filter/list-filter.component';
 
 import { SettingsService } from './../_services/settings.service';
 
+
 @NgModule({
   imports: [
     CommonModule,

@@ -12,7 +12,6 @@ export class ListItemComponent implements OnInit, OnChanges  {
 
   private isModalActive: boolean = false;
   private isHovered: boolean = false;
-  private isThumbnailHovered: boolean = false;
   private thumbnailSource: string;
 
   ngOnInit() {
@@ -34,12 +33,18 @@ export class ListItemComponent implements OnInit, OnChanges  {
 
   setHoversIn() {
     this.isHovered = true;
-    this.isThumbnailHovered = true;
   }
 
   setHoversOut() {
     this.isHovered = false;
-    this.isThumbnailHovered = false;
+  }
+
+  setModalActive() {
+    this.isModalActive = true;
+  }
+
+  setModalInactive(condition: boolean) {
+    this.isModalActive = condition;
   }
 
 }

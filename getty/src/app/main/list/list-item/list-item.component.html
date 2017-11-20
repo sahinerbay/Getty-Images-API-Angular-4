@@ -1,5 +1,5 @@
-<div [ngClass]="{'list-item': !isPreviewDetailsOnChild, 'list-item__details': isPreviewDetailsOnChild }" (mouseenter)="setHoversIn()"
-  (mouseleave)="setHoversOut()">
+<div [ngClass]="{'list-item': !isPreviewDetailsOnChild, 'list-item__details': isPreviewDetailsOnChild }" 
+(mouseenter)="setHoversIn()" (mouseleave)="setHoversOut()" (click)="setModalActive()">
   <div [ngClass]="{'list-item__container': !isPreviewDetailsOnChild, 'list-item__details__thumbnail' : isPreviewDetailsOnChild }">
     <a [ngClass]="{'list-item__container__link': !isPreviewDetailsOnChild, 'list-item__details__thumbnail__link' : isPreviewDetailsOnChild }" (click)="isModalActive = !isModalActive">
       <img [ngClass]="{'list-item__container__link__image': !isPreviewDetailsOnChild, 'list-item__details__thumbnail__link__image': isPreviewDetailsOnChild }" [src]="thumbnailSource" [alt]="singleItemDetails.title">
@@ -12,11 +12,12 @@
     <p class="list-item__details__info__artist">category: {{singleItemDetails.editorial_segments[0]}}</p>
   </div>
 
-  <div class="list-item__hover" *ngIf="isHovered && !isPreviewDetailsOnChild" (click)="isModalActive = !isModalActive">
+  <div class="list-item__hover" *ngIf="isHovered && !isPreviewDetailsOnChild" (click)="setModalActive()">
     <div class="list-item__hover__center">
       <p class="list-item__hover__center__zoom-icon">&#9906;</p>
     </div>
     <p class="list-item__hover__title">{{singleItemDetails.title}}</p>
   </div>
 </div>
-<gt-list-item-modal [itemDetails]="singleItemDetails" *ngIf="isModalActive"></gt-list-item-modal>
+<gt-list-item-modal [itemDetails]="singleItemDetails" *ngIf="isModalActive" 
+(isModalActiveChild) = "setModalInactive($event)"></gt-list-item-modal>

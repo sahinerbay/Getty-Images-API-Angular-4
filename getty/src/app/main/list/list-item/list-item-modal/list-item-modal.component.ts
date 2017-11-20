@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'gt-list-item-modal',
@@ -13,5 +13,12 @@ export class ListItemModalComponent implements OnInit {
   }
 
   @Input() itemDetails;
+  @Output() isModalActiveChild = new EventEmitter<boolean>();
+
+  setModalInactive(event) {
+    if (event.target.className === 'modal__content__close' || event.target.className === 'modal') {
+      this.isModalActiveChild.emit(false);
+    }
+  }
 
 }
