@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
     private helperService: HelpersService
   ) { }
 
-  private retrievedItems: Array<string>;
+  private retrievedItems: Array<string> = [];
 
   // This will be used in child component -list-filter.component
   private numberOfResults: string;
@@ -53,7 +53,8 @@ export class ListComponent implements OnInit {
     // Fetch response from 'shared-data.service'
     this.dataService.getSharedData().subscribe(
       (result: Getty) => {
-        this.retrievedItems = result[this.currentMediaType]; // images or videos
+        let newComingResultsArray = result[this.currentMediaType]; // images or videos
+        this.retrievedItems = [...this.retrievedItems, ...newComingResultsArray];
         this.numberOfResults = result.result_count;
       }
     );

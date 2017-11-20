@@ -11,13 +11,14 @@ export class HttpService {
   constructor(private httpClient: HttpClient, private sharedData: SharedDataService) { }
 
   //handle later if searchquery null, empty?
-  getPosts(mediaType, searchQuery, order = "best_match") {
+  getPosts(mediaType, searchQuery, order = "best_match", pageNumber = '1') {
     let url = `https://api.gettyimages.com/v3/search/${mediaType}?`;
 
     this.httpClient
       .get(url, {
         headers: new HttpHeaders().set('Api-Key', '6px2cw4fyyry8y68dvx3hcar'),
-        params: new HttpParams().set('phrase', searchQuery).set('fields', 'detail_set').set('sort_order', order)
+        params: new HttpParams()
+        .set('phrase', searchQuery).set('fields', 'detail_set').set('sort_order', order).set('page_size', '40').set('page', pageNumber)
       })
       .subscribe((result: Getty) => {
         this.sharedData.createSharedData(result);
