@@ -2,8 +2,9 @@
   <div class="filterbar__searchbar">
     <div class="filterbar__searchbar__sort">
       <!-- Sets the media type of api request -->
-      <select class="filterbar__searchbar__sort__select" (click)="setMediaType($event)">
-        <option #filterByMedia *ngFor="let option of filterMediaTypeOptions" [selected]="filterByMedia.value === currentMediaTypeOption" [value]="option.value">{{option.name}}</option>
+      <select class="filterbar__searchbar__sort__select" (change)="setMediaType($event)">
+        <option #filterByMedia *ngFor="let option of filterMediaTypeOptions" [selected]="filterByMedia.value === currentMediaTypeOption"
+          [value]="option.value">{{option.name}}</option>
       </select>
     </div>
     <input class="filterbar__searchbar__input" type="text" placeholder="Search..." required [(ngModel)]="currentSearchQuery"
@@ -13,10 +14,13 @@
     </button>
   </div>
   <div class="filterbar__dropdown">
-      <a (click) = "setPreviewDetails(false)"><img src="assets/grid.png" alt=""></a>
-      <a (click) = "setPreviewDetails(true)"><img src="assets/thumbnail.png" alt=""></a>
+    <div class="filterbar__dropdown__grid">
+        <img  class="filterbar__dropdown__grid__image" src="assets/grid.png" alt="Display in grid style" (click)="setPreviewDetails(false)">
+    </div>
+    <div class="filterbar__dropdown__thumbnail">
+        <img class="filterbar__dropdown__thumbnail__image" src="assets/thumbnail.png" alt="Display in thumbnail style" (click)="setPreviewDetails(true)">
+    </div>
     <div class="filterbar__dropdown__container">
-      
       <select class="filterbar__dropdown__container__sorting" (change)="sortByRequest($event)">
         <option #sortByOrder *ngFor="let option of sortByOptions" [selected]="sortByOrder.value === currentSortOrder" [value]="option.value">{{option.name}}</option>
       </select>

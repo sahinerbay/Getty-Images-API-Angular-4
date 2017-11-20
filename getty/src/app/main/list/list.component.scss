@@ -2,10 +2,15 @@
 @import '~sass/mixins';
 
 .list-items {
-    top: 145px;
+    top: 75px;
     position: relative;
     width: 90%;
     margin: 0 auto;
+
+    &__result-numbers {
+        font-size: .7rem;
+        color: black;
+    }
 
 &__container {
     display: grid;
@@ -14,7 +19,7 @@
 }
 
     @include atSmall {
-        top: 100px;
+        top: 35px;
         width: 70%;
     }
 
@@ -37,10 +42,15 @@
     }
 
     &-details {
-        top: 145px;
+        top: 75px;
         position: relative;
         width: 90%;
         margin: 0 auto;
+
+        &__result-numbers {
+            font-size: .7rem;
+            color: black;
+            }
     
     &__container {
         display: grid;
@@ -49,7 +59,7 @@
     }
 
         @include atSmall {
-            top: 100px;
+            top: 35px;
             width: 85%;
             &__container {
                 grid-gap: 35px;

@@ -18,22 +18,6 @@ export class SettingsService {
     {
       name: '-editorial images',
       value: 'images/editorial'
-    },
-    {
-      name: 'videos all',
-      value: 'videos'
-    },
-    {
-      name: '-creative videos',
-      value: 'videos%2Fcreative'
-    },
-    {
-      name: '-editorial videos',
-      value: 'videos/editorial'
-    },
-    {
-      name: 'events',
-      value: 'events'
     }
   ];
 

@@ -1,195 +1,57 @@
 @import '~sass/variables';
 @import '~sass/mixins';
 .navbar {
-  position: fixed;
+  position: relative;
   z-index: 3;
-  width: 100%;
-  top:0;
+  top: 0;
   height: 50px;
   background: white;
-  /* hamburger icon starts*/
+  margin: 0 auto;
+  /* mobile logo icon starts */
+  &__logo {
+    position: absolute;
+    left: 1%;
+    top: 0;
+    height: 50px;
+  }
+  &__logo__icon {
+    max-height: 100%;
+    max-width: 100%;
+  }
+  /* mobile logo icon ends */
+  /* home button icon starts*/
   &__button {
-    position: fixed;
-    top: 10px;
-    right: 15px;
-    height: $button-height;
-    width: $button-width;
+    position: absolute;
+    top: 0;
+    right: 1%;
+    height: 50px;
     cursor: pointer;
     z-index: 100;
     transition: opacity .25s ease;
     &:hover {
       opacity: .7;
     }
-    span {
-      background: #656D78;
-      border: none;
-      height: 5px;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: all .35s ease;
-      cursor: pointer;
-      &:nth-of-type(2) {
-        top: 11px;
-      }
-      &:nth-of-type(3) {
-        top: 22px;
-      }
-    }
+  
   }
-  /* hamburger icon ends*/
-  /* Responsive menu starts */
-  /* '.navbar--responsive' added when hamburger button is clicked */
-  &--responsive {
-    opacity: 1 !important;
-    visibility: visible !important;
-    height: 100% !important;
-    li {
-      animation: fadeInRight .5s ease forwards;
-      animation-delay: .35s;
-      &:nth-of-type(2) {
-        animation-delay: .4s;
-      }
-      &:nth-of-type(3) {
-        animation-delay: .45s;
-      }
-      &:nth-of-type(4) {
-        animation-delay: .50s;
-      }
-    }
+  &__button__icon {
+    max-height: 100%;
   }
-  /* Responsive menu ends */
-  /* Menu for larger screens starts*/
-  &__menu {
-    position: fixed;
-    z-index: 1;
-    background: #fff;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .35s, visibility .35s, height .35s;
-    overflow: hidden;
-    &__container {
-      position: relative;
-      height: 70%;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 50px;
-      font-family: 'Vollkorn', serif;
-      font-weight: 400;
-      text-align: center;
-    }
-    &__container__list {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      margin-right: 30px;
-      display: inline-block;
-      position: relative;
-      height: 100%;
-      li {
-        display: block;
-        height: 25%;
-        height: calc(100% / 4);
-        min-height: 50px;
-        position: relative;
-        opacity: 0;
-        a {
-          display: block;
-          position: relative;
-          color: $color-link;
-          text-decoration: none;
-          overflow: hidden;
-          &:hover:after,
-          &:focus:after,
-          &:active:after {
-            width: 100%;
-          }
-          &:after {
-            content: '';
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            width: 0%;
-            transform: translateX(-50%);
-            height: 3px;
-            background: $color-link;
-            transition: .35s;
-          }
-        }
-      }
-    }
-  }
-  /* menu ends*/
-  /* logo starts */
-  &__menu__logo {
-    visibility: hidden;
-    height: 50px;
-    float: left;
-    @include clearFix;
-  }
-  &__menu__logo__image {
-    height: 100%;
-  }
-  /* logo ends */
+  /* home button icon ends */
+  
   /* at root level; continue with navbar */
   @include atSmall {
-    &__button {
-      visibility: hidden;
-    }
-    &__menu {
-      opacity: 1;
-      visibility: visible;
-      height: 50px;
-      background: #fff;
-      width: 90%;
-      left: 50%;
-      margin-left: -45%;
-    }
-    &__menu__container {
-      font-size: 16px;
-      line-height: 50px;
-      font-family: 'Vollkorn', serif;
-      font-weight: 400;
-      text-align: right;
-      top: 0;
-      transform: translateY(0%);
-      height: 100%;
-    }
-    &__menu__container__list {
-      margin-right: -15px;
-    }
-    &__menu__container__list>li {
-      display: inline-block;
-      opacity: 1;
-      padding-right: 15px;
-    }
-    &__menu__logo {
-      visibility: visible;
-    }
+  &__logo {
+    position: absolute;
+    left: 5%;
+    top: 0;
+    height: 50px;
+  }
+  &__button {
+    right: 5%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
   }
 }
-
-
 /* Navbar ends */
-
-
-/* Menu links animation starts */
-
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    left: 20%;
-  }
-  100% {
-    opacity: 1;
-    left: 0;
-  }
-}
-
-
-/* Menu links animation ends */

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 
+/* Interfaces */
 import { SortAndFilterOptions } from './../../../_interfaces/sortAndFilterOptions';
 
 /* Services */
@@ -7,13 +8,12 @@ import { HttpService } from '../../../_services/http.service';
 import { GetRouteService } from '../../../_services/get-route.service';
 import { SettingsService } from './../../../_services/settings.service';
 import { SharedDataService } from './../../../_services/shared-data.service';
-import { HelpersService } from './../../../_services/helpers.service';
 
 @Component({
   selector: 'gt-list-filter',
   templateUrl: './list-filter.component.html',
   styleUrls: ['./list-filter.component.scss'],
-  providers: [GetRouteService, HelpersService],
+  providers: [GetRouteService],
   encapsulation: ViewEncapsulation.Native
 })
 export class ListFilterComponent implements OnInit {
@@ -23,12 +23,12 @@ export class ListFilterComponent implements OnInit {
     private routeService: GetRouteService,
     private settingService: SettingsService,
     private dataService: SharedDataService,
-    private helperService: HelpersService
   ) { }
 
   // Retrieved from parent component list-item.component
   @Input() private numberOfResults: number;
 
+  // Retrieves dropdown menu options
   private sortByOptions: SortAndFilterOptions;
   private filterMediaTypeOptions: SortAndFilterOptions;
 
@@ -55,14 +55,17 @@ export class ListFilterComponent implements OnInit {
 
   }
 
+  // Set media type on change
   setMediaType(event): void {
     this.currentMediaTypeOption = event.target.value;
   }
 
+  // Set the view (grid / thumbnail)
   setPreviewDetails(previewCondition:boolean) {
     this.dataService.setPreviewDetails(previewCondition);
   }
 
+  // Send request when submitting search form
   sendRequest(event, mediaType, searchQuery) {
     if (event.target.nodeName === 'SPAN' ||
       event.target.nodeName === 'BUTTON' ||
@@ -72,6 +75,7 @@ export class ListFilterComponent implements OnInit {
     }
   }
 
+  // Send request when changing the sort order
   sortByRequest(event): void {
     this.currentSortOrder = event.target.value;
     this.httpService.getPosts(this.currentMediaTypeOption, this.currentSearchQuery, event.target.value);

@@ -30,6 +30,22 @@
     align-items: center;
     width: 100%;
     height: 40px;
+    padding-right: 5px;
+  }
+
+  &__dropdown__grid, &__dropdown__thumbnail  {
+    height: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: opacity .25s ease;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+
+  &__dropdown__grid__image, &__dropdown__thumbnail__image  {
+    max-height: 100%;
   }
 
   &__dropdown__container {
@@ -89,7 +105,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    width: 25%;
+    width: 30%;
     height: 100%;
     border-radius: 5px;
     border-bottom-right-radius: 0;
@@ -155,7 +171,6 @@
     font: bold 15px/40px 'Raleway', sans-serif;
     color: #fff;
     background: #D8334A;
-    // border-radius: 0 5px 5px 0;
     text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
     }
     &__searchbar__button:hover{
@@ -203,7 +218,7 @@
     align-items: center;
 
     &__dropdown {
-      width: 20%;
+      width: 37%;
     }
 
     &__dropdown__container {
@@ -222,6 +237,10 @@
     &__searchbar__sort:after {
       right: 10px;
       top: 9px;
+    }
+
+    &__searchbar__sort {
+      width: 45%;
     }
 
     &__searchbar__sort__select {
@@ -247,7 +266,7 @@
   .filterbar {
 
     &__dropdown {
-      width: 15%;
+      width: 25%;
     }
 
     &__searchbar {
@@ -261,7 +280,7 @@
   .filterbar {
 
     &__dropdown {
-      width: 10%;
+      width: 20%;
     }
 
     &__searchbar {

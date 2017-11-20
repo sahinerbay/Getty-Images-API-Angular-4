@@ -1,7 +1,7 @@
 <gt-list-filter [numberOfResults]="numberOfResults"></gt-list-filter>
 
 <div [ngClass]= "{'list-items': !isPreviewDetailsOn, 'list-items-details': isPreviewDetailsOn}">
-  <p>{{numberOfResults}} {{mediaType}} found</p>
+  <p class= "list-items__result-numbers list-items-details__result numbers">{{numberOfResults}} {{mediaType}} found</p>
   <div [ngClass]="{'list-items__container': !isPreviewDetailsOn, 'list-items-details__container': isPreviewDetailsOn}">
     <!-- Loop child component -list-item.component -->
     <gt-list-item *ngFor="let singleItem of retrievedItems" [singleItemDetails]="singleItem" [isPreviewDetailsOnChild] = "isPreviewDetailsOn"></gt-list-item>

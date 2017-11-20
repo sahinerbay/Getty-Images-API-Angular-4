@@ -1,33 +1,12 @@
-<nav class="navbar">
-  <!-- 
-      Hamburger menu icon ('navbar__button') is only visible in small-screen devices by CSS media queries. 
-      When you click on hamburger icon, It changes the value of 'isHamburgerButtonActive'. Default value is false!
-      'isHamburgerButtonActive' is responsible of responsive menu. If It states true, responsive menu is active.
-  -->
-  <div [ngClass]="{'navbar__button': true}" (click)="setHamburgerButton()">
-    <span class="navbar__button--top"></span>
-    <span class="navbar__button--middle"></span>
-    <span class="navbar__button--bottom"></span>
+<nav class="navbar" *ngIf="isNavbarVisible">
+  <div class="navbar__logo">
+    <a href="/">
+      <img class="navbar__logo__icon" src="assets/logo-mobile-icon.jpg" alt="logo mobile icon">
+    </a>
   </div>
-
-  <!-- 
-      '.navbar__menu': larger screens
-      '.navbar__menu--responsive': small screens
-      When 'isHamburgerButtonActive' variable states true (can be only accessed via click on hamburger icon), '--responsive' class will be added to '.navbar__menu'
-      '.navbar__menu' class is hidden for small screen devices and becomes visiable in larger screens via CSS media queries.
-      'navbar__menu--responsive' class enables responsive menu. If It is false, the menu for larger screens will appear.
-      Since the hamburger menu icon is only visible in small screens, 'navbar__menu--responsive' can be changed only in small screens.
-  -->
-  <div [ngClass]="{'navbar__menu': true, 'navbar--responsive': !isHamburgerButtonActive}">
-    <div class="navbar__menu__logo" *ngIf = "isLogoIconVisible">
-      <img class="navbar__menu__logo__image" src="assets\logo-mobile-icon.jpg" alt=".....">
-    </div>
-    <div class="navbar__menu__container">
-      <ul class="navbar__menu__container__list">
-        <li *ngFor = "let menuItem of menuLinksNames">
-          <a href="#">{{menuItem}}</a>
-        </li>
-      </ul>
-    </div>
+  <div class="navbar__button">
+    <a href="/">
+      <img class="navbar__button__icon" src="assets/home-button-icon.png" alt="home button icon">
+    </a>
   </div>
 </nav>
