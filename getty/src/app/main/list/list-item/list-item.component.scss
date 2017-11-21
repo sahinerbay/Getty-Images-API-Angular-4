@@ -33,13 +33,13 @@
     &__hover__center {
         margin: 0;
         position: absolute;
-        top: 50%;
+        top: 25%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
     &__hover__center__zoom-icon {
-        font-size: 10rem;
+        font-size: 5rem;
         transform: rotate(-45deg);
         color: #fff;
     }
@@ -65,6 +65,19 @@
     width: 200px;
     padding: 5px;
     box-sizing: border-box;
+
+    &__info {
+        padding-left: 7px;
+        display: flex;
+        height: 110px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    &__info > p {
+        margin: 0;
+    }
 
     &__thumbnail {
         position: relative;

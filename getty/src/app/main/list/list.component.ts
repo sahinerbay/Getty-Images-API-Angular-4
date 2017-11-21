@@ -7,43 +7,36 @@ import { Getty } from '../../_interfaces/getty';
 import { HttpService } from '../../_services/http.service';
 import { SharedDataService } from '../../_services/shared-data.service';
 import { GetRouteService } from '../../_services/get-route.service';
-import { HelpersService } from './../../_services/helpers.service';
-
 
 @Component({
   selector: 'gt-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  providers: [GetRouteService, HelpersService],
+  providers: [GetRouteService],
   encapsulation: ViewEncapsulation.Native
 })
 export class ListComponent implements OnInit {
 
   constructor(
-    private httpService: HttpService, 
-    private dataService: SharedDataService, 
-    private routeService: GetRouteService, 
-    private helperService: HelpersService
+    private httpService: HttpService,
+    private dataService: SharedDataService,
+    private routeService: GetRouteService,
   ) { }
 
   private retrievedItems: Array<string> = [];
+  private newComingResultsArray: Array<string>;
 
   // This will be used in child component -list-filter.component
   private numberOfResults: string;
 
+  private currentMediaType: string = 'images';
   private currentSearchQuery: string;
-  private currentMediaType: string;
   private currentSortOrder: string;
 
+  //view type (grid / thumbnail)
   private isPreviewDetailsOn: boolean;
 
-
   ngOnInit() {
-    // Fetch media type from route -'mediaType' comes from main-routing.module
-    this.routeService.getActiveRoute().subscribe(params => {
-      this.currentMediaType = this.helperService.setMediaTypeOption(this.currentMediaType, params.get('mediaType'));
-    });
-
     // Fetch search query from route parameter -'query' comes from get-route.service
     this.routeService.getActiveParameter().subscribe(params => {
       this.currentSearchQuery = params.get('query');
@@ -53,9 +46,10 @@ export class ListComponent implements OnInit {
     // Fetch response from 'shared-data.service'
     this.dataService.getSharedData().subscribe(
       (result: Getty) => {
-        let newComingResultsArray = result[this.currentMediaType]; // images or videos
-        this.retrievedItems = [...this.retrievedItems, ...newComingResultsArray];
+        this.newComingResultsArray = result[this.currentMediaType]; // images or videos
+        this.retrievedItems = this.newComingResultsArray;
         this.numberOfResults = result.result_count;
+
       }
     );
 
@@ -64,7 +58,8 @@ export class ListComponent implements OnInit {
       this.httpService.getPosts(this.currentMediaType, this.currentSearchQuery, this.currentSortOrder);
     }
 
-    this.dataService.getPreviewDetails().subscribe((condition:boolean) => this.isPreviewDetailsOn = condition)
+    // Retrieves the chosen view type (grid / thumbnail)
+    this.dataService.getPreviewDetails().subscribe((condition: boolean) => this.isPreviewDetailsOn = condition)
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 /* Interfaces */
 import { SortAndFilterOptions } from './../../../_interfaces/sortAndFilterOptions';
@@ -24,9 +24,6 @@ export class ListFilterComponent implements OnInit {
     private settingService: SettingsService,
     private dataService: SharedDataService,
   ) { }
-
-  // Retrieved from parent component list-item.component
-  @Input() private numberOfResults: number;
 
   // Retrieves dropdown menu options
   private sortByOptions: SortAndFilterOptions;
@@ -61,7 +58,7 @@ export class ListFilterComponent implements OnInit {
   }
 
   // Set the view (grid / thumbnail)
-  setPreviewDetails(previewCondition:boolean) {
+  setPreviewDetails(previewCondition: boolean) {
     this.dataService.setPreviewDetails(previewCondition);
   }
 

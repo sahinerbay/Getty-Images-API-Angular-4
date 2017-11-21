@@ -1,16 +1,15 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 
 @Component({
-  selector: 'gt-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'gt-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class FooterComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  /* Hide navbar on homepage and Show navbar again on other pages */
   private isNavbarVisible: boolean = false;
 
   ngOnInit() {
@@ -23,4 +22,5 @@ export class HeaderComponent implements OnInit {
         }
       });
   }
+
 }

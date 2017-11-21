@@ -37,7 +37,7 @@ export class MainComponent implements OnInit {
   onWindowScroll() {
     let height = Math.max( this.body.scrollHeight, this.body.offsetHeight, this.html.clientHeight, this.html.scrollHeight, this.html.offsetHeight );
     let scrolledHeight = Math.max(window.pageYOffset, this.html.scrollTop, this.body.scrollTop, 0);
-    let windowHeight = window.innerHeight + 20;
+    let windowHeight = window.innerHeight + 10;
     
     console.log('height:' + height);
     console.log('scrolledHeight:' + scrolledHeight);

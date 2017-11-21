@@ -2,8 +2,6 @@
 @import '~sass/mixins';
 
 .list-items {
-    top: 75px;
-    position: relative;
     width: 90%;
     margin: 0 auto;
 
@@ -15,11 +13,10 @@
 &__container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-row-gap: 50px;
+    grid-row-gap: 30px;
 }
 
     @include atSmall {
-        top: 35px;
         width: 70%;
     }
 
@@ -29,21 +26,16 @@
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 35px;
         }
-        
     }
 
     @include atLarge {
         width: 90%;
         &__container{
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
-        
-        
     }
 
     &-details {
-        top: 75px;
-        position: relative;
         width: 90%;
         margin: 0 auto;
 
@@ -55,11 +47,10 @@
     &__container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        grid-row-gap: 50px;
+        grid-row-gap: 30px;
     }
 
         @include atSmall {
-            top: 35px;
             width: 85%;
             &__container {
                 grid-gap: 35px;
@@ -76,10 +67,10 @@
     
         @include atLarge {
             width: 90%;
-            &__container{
+            &__container {
+                grid-gap: 25px;
             }
-            
-            
+
         }
 
     }

@@ -13,12 +13,14 @@ import { HeaderComponent } from './header/header.component';
 import { HttpService } from './_services/http.service';
 import { SharedDataService } from './_services/shared-data.service';
 import { GetRouteService } from './_services/get-route.service';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
